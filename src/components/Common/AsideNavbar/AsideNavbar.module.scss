@@ -1,0 +1,34 @@
+.container {
+  @apply bg-dark h-screen w-20 pt-2 pr-1;
+}
+
+.item {
+  @apply text-primaryIcon bg-primaryBg h-[50px] w-[50px] flex justify-center items-center mb-2 relative;
+  outline: none;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: 0.2s linear border-radius, 0.2s linear color,
+    0.2s linear background-color, 0.2s linear opacity;
+  &::before {
+    content: "";
+    @apply absolute w-1.5 h-2/4 bg-primaryText rounded-lg;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -15px;
+    opacity: 0;
+    transition: 0.3s ease opacity, 0.3s ease height;
+  }
+  &:hover,
+  &:focus {
+    border-radius: 20px;
+    @apply text-primaryText bg-primaryIcon;
+  }
+  &:hover::before,
+  &:focus::before {
+    opacity: 1;
+  }
+  &:hover:active::before,
+  &:focus:active::before {
+    @apply h-3/4;
+  }
+}

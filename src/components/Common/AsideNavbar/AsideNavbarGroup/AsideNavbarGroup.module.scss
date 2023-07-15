@@ -1,0 +1,9 @@
+.group {
+  &::after {
+    content: "";
+    width: 50%;
+    height: 1px;
+    @apply bg-secondaryIcon;
+  }
+  @apply flex flex-col items-center min-h-[60px] mb-2;
+}

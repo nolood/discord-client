@@ -1,11 +1,11 @@
-import { IAsideNavbarItem } from "@/types/IAsideNavbarItem";
+import { IAsideItems } from "@/types/IAsideItems";
 import AvatarIcon from "@mui/icons-material/Person4";
 import ExploreIcon from "@mui/icons-material/Explore";
 import AddIcon from "@mui/icons-material/Add";
 
 export const AsideNavbarItems: Array<{
   id: string;
-  items: IAsideNavbarItem[];
+  items: IAsideItems[];
 }> = [
   {
     id: crypto.randomUUID(),

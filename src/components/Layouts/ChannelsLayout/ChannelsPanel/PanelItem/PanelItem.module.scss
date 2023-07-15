@@ -1,0 +1,14 @@
+.btn {
+  @apply w-full flex justify-start p-2 mb-1 text-secondaryText font-medium rounded-md;
+  &:hover {
+    @apply bg-secondaryHover text-primaryText;
+  }
+  svg {
+    @apply mr-4;
+  }
+}
+
+.active {
+  background-color: rgb(65, 65, 67);
+  @apply text-primaryText;
+}

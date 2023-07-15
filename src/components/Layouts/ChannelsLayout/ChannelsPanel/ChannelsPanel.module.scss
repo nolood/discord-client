@@ -1,0 +1,11 @@
+.wrapper {
+  @apply h-screen w-64 bg-secondaryBg;
+}
+
+.btn {
+  @apply h-full w-full p-1 pl-2 bg-dark text-secondaryText flex justify-start items-center rounded-md;
+}
+
+.list {
+  @apply list-none p-2 pr-0 flex flex-col items-start;
+}

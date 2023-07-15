@@ -1,5 +1,5 @@
 const Channels = () => {
-  return <div>channels</div>;
+  return <div>channels screen</div>;
 };
 
 export default Channels;

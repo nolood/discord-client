@@ -10,7 +10,7 @@ export default {
       dark: "rgb(30,31,34)",
       black: "rgb(17,18,20)",
       primaryText: "rgb(242,243,234)",
-      secondaryText: "rgb(64,66,73)",
+      secondaryText: "rgb(120,120,130)",
       darkText: "rgb(43,45,49)",
       secondaryIcon: "rgb(126,130,135)",
       primaryIcon: "rgb(35,165,89)",

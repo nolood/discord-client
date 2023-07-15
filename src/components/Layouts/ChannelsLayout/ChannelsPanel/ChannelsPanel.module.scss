@@ -9,3 +9,22 @@
 .list {
   @apply list-none p-2 pr-0 flex flex-col items-start;
 }
+
+.channels {
+  @apply w-full p-2 pr-0;
+}
+
+.topchannels {
+  user-select: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  @apply flex justify-between items-center pr-4 pl-2
+    text-secondaryText;
+  &:hover {
+    @apply text-primaryText;
+  }
+  svg {
+    cursor: pointer;
+  }
+}

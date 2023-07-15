@@ -2,6 +2,7 @@ import { IAsideItems } from "@/types/IAsideItems";
 import AvatarIcon from "@mui/icons-material/Person4";
 import ExploreIcon from "@mui/icons-material/Explore";
 import AddIcon from "@mui/icons-material/Add";
+import { CHANNEL_ROUTE, SERVER_ROUTE } from "./const";
 
 export const AsideNavbarItems: Array<{
   id: string;
@@ -14,7 +15,7 @@ export const AsideNavbarItems: Array<{
         id: crypto.randomUUID(),
         title: "Личные сообщения",
         img: AvatarIcon,
-        route: "/home",
+        route: CHANNEL_ROUTE,
       },
     ],
   },
@@ -29,13 +30,13 @@ export const AsideNavbarItems: Array<{
         id: crypto.randomUUID(),
         title: "Найти сервер",
         img: ExploreIcon,
-        route: "/home",
+        route: SERVER_ROUTE,
       },
       {
         id: crypto.randomUUID(),
         title: "Добавить сервер",
         img: AddIcon,
-        route: "/home",
+        route: SERVER_ROUTE,
       },
     ],
   },

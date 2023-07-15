@@ -18,17 +18,28 @@
     opacity: 0;
     transition: 0.3s ease opacity, 0.3s ease height;
   }
-  &:hover,
-  &:focus {
+  &:hover {
     border-radius: 20px;
     @apply text-primaryText bg-primaryIcon;
   }
-  &:hover::before,
-  &:focus::before {
+  &:hover::before {
     opacity: 1;
   }
-  &:hover:active::before,
-  &:focus:active::before {
+  &:hover:active::before {
     @apply h-3/4;
   }
+}
+
+.active {
+  &::before {
+    content: "";
+    @apply absolute w-1.5 h-3/4 bg-primaryText rounded-lg;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -15px;
+    opacity: 1;
+    transition: 0.3s ease opacity, 0.3s ease height;
+  }
+  border-radius: 20px;
+  @apply text-primaryText bg-primaryIcon;
 }

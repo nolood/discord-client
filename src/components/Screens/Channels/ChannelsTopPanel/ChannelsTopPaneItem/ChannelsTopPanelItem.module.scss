@@ -1,0 +1,14 @@
+.item {
+  @apply mr-4;
+}
+
+.btn {
+  @apply w-full h-full text-secondaryText pr-2 pl-2 flex items-center justify-center font-medium rounded-md;
+  &:hover {
+    @apply bg-secondaryHover text-primaryText;
+  }
+}
+
+.active {
+  @apply bg-secondaryHover text-primaryText;
+}

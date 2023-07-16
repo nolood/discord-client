@@ -1,0 +1,14 @@
+.friends {
+  @apply text-primaryText flex items-center border-solid border-r-[1px] border-secondaryText pr-4 font-medium;
+  svg {
+    @apply text-secondaryText mr-3;
+  }
+}
+
+.wrapper {
+  @apply flex items-center;
+}
+
+.list {
+  @apply flex items-center pl-4;
+}

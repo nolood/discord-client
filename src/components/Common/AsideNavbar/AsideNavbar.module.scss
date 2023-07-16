@@ -9,6 +9,9 @@
   border-radius: 30px;
   transition: 0.2s linear border-radius, 0.2s linear color,
     0.2s linear background-color, 0.2s linear opacity;
+  &:hover .tooltip {
+    display: flex;
+  }
   &::before {
     content: "";
     @apply absolute w-1.5 h-2/4 bg-primaryText rounded-lg;
@@ -42,4 +45,29 @@
   }
   border-radius: 20px;
   @apply text-primaryText bg-primaryIcon;
+}
+
+.tooltip {
+  position: absolute;
+  right: -230px;
+  top: 50%;
+  display: none;
+  align-items: center;
+  width: 200px;
+  padding-bottom: 3px;
+  border-radius: 5px;
+  transform: translateY(-50%);
+  background-color: #141414;
+  height: 28px;
+  @apply text-primaryText;
+  div {
+    @apply w-0 h-0;
+    position: relative;
+    top: 1px;
+    left: -12px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #141414;
+    transform: rotate(-90deg);
+  }
 }

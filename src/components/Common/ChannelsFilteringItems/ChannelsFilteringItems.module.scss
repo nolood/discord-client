@@ -1,0 +1,10 @@
+.container {
+  @apply w-[70%] pt-4 pb-4 pl-7 pr-7;
+}
+
+.search {
+  position: relative;
+  svg {
+    @apply absolute right-2 top-2/4 -translate-y-1/2 text-secondaryText;
+  }
+}

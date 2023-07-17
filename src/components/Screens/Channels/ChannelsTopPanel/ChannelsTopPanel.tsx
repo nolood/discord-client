@@ -14,6 +14,7 @@ const ChannelsTopPanel = () => {
           <ChannelsTopPanelItem key={item.id} item={item} />
         ))}
       </ul>
+      <button className={styles.btn}>Добавить в друзья</button>
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.container {
+  @apply flex flex-grow border-l-[1px] border-solid border-secondaryHover p-4;
+}
+
+.title {
+  @apply text-primaryText font-bold text-xl;
+}

@@ -1,6 +1,6 @@
 import FriendIcon from "@mui/icons-material/Group";
 import styles from "./ChannelsTopPanel.module.scss";
-import ChannelsTopPanelItem from "./ChannelsTopPaneItem/ChannelsTopPanelItem";
+import ChannelsTopPanelItem from "../ChannelsTopPaneItem/ChannelsTopPanelItem";
 import { ChannelsFilteringItems } from "@/utils/ChannelFilteringItems";
 
 const ChannelsTopPanel = () => {

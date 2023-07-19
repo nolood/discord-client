@@ -1,4 +1,5 @@
 .form {
+  box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.1);
   @apply p-6 bg-primaryBg rounded-md flex flex-col max-w-[700px] min-w-[300px] w-full;
   h1 {
     @apply font-medium text-primaryText text-center text-2xl;
@@ -21,4 +22,22 @@
       text-decoration: underline;
     }
   }
+}
+
+.input {
+  @apply bg-dark text-primaryText border-none outline-none p-2 rounded-md;
+  &:focus {
+    box-shadow: 0px 0px 5px 2px rgb(35, 165, 89);
+  }
+}
+
+.error {
+  box-shadow: 0px 0px 5px 2px rgb(165, 37, 35);
+  &:focus {
+    box-shadow: 0px 0px 5px 2px rgb(165, 37, 35);
+  }
+}
+
+.errortext {
+  color: rgb(165, 37, 35) !important;
 }

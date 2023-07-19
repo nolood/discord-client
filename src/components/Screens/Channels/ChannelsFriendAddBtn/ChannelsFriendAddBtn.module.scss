@@ -1,0 +1,7 @@
+.btn {
+  @apply text-primaryText bg-primaryIcon rounded-md pl-2 pr-2 font-medium;
+}
+
+.active {
+  @apply text-primaryIcon bg-none pl-2 pr-2 font-medium;
+}

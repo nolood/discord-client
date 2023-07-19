@@ -1,26 +1,26 @@
 import styles from "./AuthTextField.module.scss";
+import { type UseFormRegister, type FieldValues } from "react-hook-form";
 
 const AuthTextField = ({
   placeholder,
   id,
   type,
-  value,
-  setValue,
+  register,
+  options,
 }: {
   placeholder: string;
-  id?: string;
+  id: string;
   type?: string;
-  value: string;
-  setValue: (value: string) => void;
+  register: UseFormRegister<FieldValues>;
+  options: { maxLength?: number; minLength?: number; required?: string };
 }) => {
   return (
     <input
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
       className={styles.input}
       type={type ? type : "text"}
       placeholder={placeholder}
       id={id}
+      {...register(id, { ...options })}
     />
   );
 };

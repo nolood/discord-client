@@ -1,7 +1,7 @@
 import { IAsideItems } from "@/types/IAsideItems";
 import styles from "../AsideNavbar.module.scss";
 import { useLocation } from "react-router-dom";
-import { setClassNameChannelsItems } from "@/utils/setClassNameChannelsItem";
+import { setClassNameChannelsItems } from "@/utils/funcs/setClassNameChannelsItem";
 import { memo, useMemo } from "react";
 
 const AsideNavbarItem = memo(function AsideNavbarItem({

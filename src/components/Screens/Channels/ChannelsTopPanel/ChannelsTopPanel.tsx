@@ -2,6 +2,7 @@ import FriendIcon from "@mui/icons-material/Group";
 import styles from "./ChannelsTopPanel.module.scss";
 import ChannelsTopPanelItem from "../ChannelsTopPaneItem/ChannelsTopPanelItem";
 import { ChannelsFilteringItems } from "@/utils/ChannelFilteringItems";
+import ChannelsFriendAddBtn from "@/components/Screens/Channels/ChannelsFriendAddBtn/ChannelsFriendAddBtn";
 
 const ChannelsTopPanel = () => {
   return (
@@ -14,7 +15,7 @@ const ChannelsTopPanel = () => {
           <ChannelsTopPanelItem key={item.id} item={item} />
         ))}
       </ul>
-      <button className={styles.btn}>Добавить в друзья</button>
+      <ChannelsFriendAddBtn />
     </div>
   );
 };

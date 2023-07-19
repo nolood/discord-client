@@ -1,50 +1,145 @@
-import AuthTextField from "@/components/Common/AuthTextField/AuthTextField";
 import styles from "./Register.module.scss";
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { LOGIN_ROUTE } from "@/utils/const";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { IFormRegister } from "@/types/IFormRegister";
 
 const Register = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [nickname, setNickname] = useState<string>("");
-  const [passrepeat, setPassrepeat] = useState<string>("");
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<IFormRegister>();
 
-  const handleSubmit = () => {};
+  const nicknameError = {
+    error: !!errors?.nickname,
+    message: errors?.nickname?.message || "Некорректная длина",
+  };
+
+  const emailError = {
+    error: !!errors?.email,
+    message: errors?.email?.message || "Некорректная длина",
+  };
+
+  const passwordError = {
+    error: !!errors?.password,
+    message: errors?.password?.message || "Некорректная длина",
+  };
+
+  const passrepeatError = {
+    error: !!errors?.passrepeat,
+    message: errors?.passrepeat?.message || "Некорректная длина",
+  };
+
+  const onSubmit: SubmitHandler<IFormRegister> = (data) => {
+    console.log(JSON.stringify(data));
+  };
+
   return (
-    <form className={styles.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <h1>Регистрация</h1>
-      <label htmlFor="nickname">Ник:</label>
-      <AuthTextField
-        value={nickname}
-        setValue={setNickname}
-        placeholder="Введите ваш ник"
-        id="nickname"
+      <label
+        className={
+          nicknameError.error
+            ? `${styles.label} ${styles.errortext}`
+            : styles.label
+        }
+        htmlFor="nickname"
+      >
+        Ник:
+      </label>
+      <input
+        className={
+          nicknameError.error ? `${styles.input} ${styles.error}` : styles.input
+        }
+        type="text"
+        {...register("nickname", {
+          required: "Это поле не может быть пустым",
+          minLength: 3,
+          maxLength: 16,
+        })}
       />
-      <label htmlFor="email">Email:</label>
-      <AuthTextField
-        value={email}
-        setValue={setEmail}
-        placeholder="Введите ваш email"
-        id="email"
+      <p className={styles.errortext}>
+        {nicknameError.error && String(nicknameError.message)}
+      </p>
+
+      <label
+        className={
+          emailError.error
+            ? `${styles.label} ${styles.errortext}`
+            : styles.label
+        }
+        htmlFor="email"
+      >
+        Email:
+      </label>
+      <input
+        className={
+          emailError.error ? `${styles.input} ${styles.error}` : styles.input
+        }
+        type="text"
+        {...register("email", {
+          required: "Это поле не может быть пустым",
+          minLength: 5,
+          maxLength: 50,
+        })}
       />
-      <label htmlFor="password">Пароль:</label>
-      <AuthTextField
-        value={password}
-        setValue={setPassword}
-        placeholder="Введите ваш пароль"
-        id="password"
-        type="password"
+      <p className={styles.errortext}>
+        {emailError.error && String(emailError.message)}
+      </p>
+
+      <label
+        className={
+          passwordError.error
+            ? `${styles.label} ${styles.errortext}`
+            : styles.label
+        }
+        htmlFor="password"
+      >
+        Пароль:
+      </label>
+      <input
+        className={
+          passwordError.error ? `${styles.input} ${styles.error}` : styles.input
+        }
+        type="text"
+        {...register("password", {
+          required: "Это поле не может быть пустым",
+          minLength: 6,
+          maxLength: 20,
+        })}
       />
-      <label htmlFor="passrepeat">Повтор пароля:</label>
-      <AuthTextField
-        value={passrepeat}
-        setValue={setPassrepeat}
-        placeholder="Повторите пароль"
-        id="passrepeat"
-        type="password"
+      <p className={styles.errortext}>
+        {passwordError.error && String(passwordError.message)}
+      </p>
+
+      <label
+        className={
+          passrepeatError.error
+            ? `${styles.label} ${styles.errortext}`
+            : styles.label
+        }
+        htmlFor="passrepeat"
+      >
+        Повтор пароля:
+      </label>
+      <input
+        className={
+          passrepeatError.error
+            ? `${styles.input} ${styles.error}`
+            : styles.input
+        }
+        type="text"
+        {...register("passrepeat", {
+          required: "Это поле не может быть пустым",
+          minLength: 3,
+          maxLength: 16,
+        })}
       />
-      <button onClick={handleSubmit}>Войти</button>
+      <p className={styles.errortext}>
+        {passrepeatError.error && String(passrepeatError.message)}
+      </p>
+      <button type="submit">Войти</button>
       <NavLink to={LOGIN_ROUTE}>Есть аккаунт? Войдите!</NavLink>
     </form>
   );

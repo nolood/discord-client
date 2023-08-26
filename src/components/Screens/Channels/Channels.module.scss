@@ -1,7 +1,14 @@
 .container {
-  @apply h-full flex-grow bg-primaryBg;
+	@apply h-full flex-grow bg-primaryBg;
 }
 
 .wrapper {
-  @apply flex;
+	@apply flex;
+}
+
+.search {
+	position: relative;
+	svg {
+		@apply absolute right-2 top-2/4 -translate-y-1/2 text-secondaryText;
+	}
 }

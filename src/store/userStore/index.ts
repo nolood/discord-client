@@ -1,17 +1,19 @@
-import { IFilteringItem } from "@/types/IFilteringItem";
-import { IReg } from "@/types/IReg";
-import axios from "axios";
-import { create } from "zustand";
+import { userService } from '@/services/userService';
+import { IFilteringItem } from '@/types/IFilteringItem';
+import { IReg } from '@/types/IReg';
+import { FetchStatus } from '@/types/entities/FetchStatus';
+import axios from 'axios';
+import { create } from 'zustand';
 
 export interface IUserStore {
   isAuth: boolean;
   isLoading: boolean;
-  activeFilterOption: Omit<IFilteringItem, "title">;
+  activeFilterOption: Omit<IFilteringItem, 'title'>;
   setIsAuth: (isAuth: boolean) => void;
-  setActiveFilterOption: (
-    activeFilterOption: Omit<IFilteringItem, "title">
-  ) => void;
+  setActiveFilterOption: (activeFilterOption: Omit<IFilteringItem, 'title'>) => void;
   regUser: (data: IReg) => void;
+  status: FetchStatus;
+  potentFriends: any[];
 }
 
 export const useUserStore = create<IUserStore>()((set) => ({
@@ -19,11 +21,17 @@ export const useUserStore = create<IUserStore>()((set) => ({
   isLoading: false,
   activeFilterOption: {
     id: 1,
-    property: "active",
+    property: 'active',
   },
+  status: 'idle',
+  potentFriends: [],
+  // Получение пользователей по nickname
+  getUserByNickname: (nickname: string) => userService.getByNickname(nickname, set),
   setIsAuth: (isAuth: boolean) => set(() => ({ isAuth })),
-  setActiveFilterOption: (activeFilterOption: Omit<IFilteringItem, "title">) =>
+  // Установить активный фильтр
+  setActiveFilterOption: (activeFilterOption: Omit<IFilteringItem, 'title'>) =>
     set(() => ({ activeFilterOption })),
+  // Регистрация временная
   regUser: async (data) => {
     const { email, password, nickname } = data;
     const token = await axios.post(`http://localhost:5000/users/registration`, {
@@ -32,7 +40,7 @@ export const useUserStore = create<IUserStore>()((set) => ({
       nickname,
     });
 
-    localStorage.setItem("discordtoken", JSON.stringify(token));
+    localStorage.setItem('discordtoken', JSON.stringify(token));
     set({ isAuth: true });
   },
 }));

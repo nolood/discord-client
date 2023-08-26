@@ -5,18 +5,7 @@ import styles from './ChannelsFilteringItems.module.scss'
 
 const ChannelsFilteringItems = () => {
 	const [searchValue, setSearchValue] = useState<string>('')
-	return (
-		<div className=''>
-			<div className={styles.search}>
-				<SearchTextField
-					value={searchValue}
-					setValue={setSearchValue}
-					placeholder='Поиск'
-				/>
-				<SearchIcon />
-			</div>
-		</div>
-	)
+	return <div className=''></div>
 }
 
 export default ChannelsFilteringItems

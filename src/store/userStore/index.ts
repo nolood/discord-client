@@ -1,4 +1,6 @@
 import { IFilteringItem } from "@/types/IFilteringItem";
+import { IReg } from "@/types/IReg";
+import axios from "axios";
 import { create } from "zustand";
 
 export interface IUserStore {
@@ -9,6 +11,7 @@ export interface IUserStore {
   setActiveFilterOption: (
     activeFilterOption: Omit<IFilteringItem, "title">
   ) => void;
+  regUser: (data: IReg) => void;
 }
 
 export const useUserStore = create<IUserStore>()((set) => ({
@@ -21,4 +24,15 @@ export const useUserStore = create<IUserStore>()((set) => ({
   setIsAuth: (isAuth: boolean) => set(() => ({ isAuth })),
   setActiveFilterOption: (activeFilterOption: Omit<IFilteringItem, "title">) =>
     set(() => ({ activeFilterOption })),
+  regUser: async (data) => {
+    const { email, password, nickname } = data;
+    const token = await axios.post(`http://localhost:5000/users/registration`, {
+      email,
+      password,
+      nickname,
+    });
+
+    localStorage.setItem("discordtoken", JSON.stringify(token));
+    set({ isAuth: true });
+  },
 }));

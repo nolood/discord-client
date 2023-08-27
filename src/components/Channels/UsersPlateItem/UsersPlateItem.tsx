@@ -1,10 +1,14 @@
 import Avatar from '@/components/Common/Avatar/Avatar';
 import { Statuses } from '@/consts/Statuses';
+import { selectCurrentUser } from '@/store/userStore/userSelectors';
+import { useUserStore } from '@/store/userStore/userStore';
 import { IUser } from '@/types/entities/IUser';
 import { motion } from 'framer-motion';
 import AddFriendBtn from '../FriendsButtons/AddFriendBtn';
 
 const UsersPlateItem = ({ user, index }: { user: IUser; index: number }) => {
+  const currentUser = useUserStore(selectCurrentUser);
+  if (user.id === currentUser?.id) return null;
   return (
     <motion.div
       initial={{

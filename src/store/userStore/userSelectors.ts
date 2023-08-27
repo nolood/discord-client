@@ -1,4 +1,4 @@
-import { IUserStore } from '..';
+import { IUserStore } from './userStore';
 
 export const selectIsAuth = (state: IUserStore) => state.isAuth;
 export const selectActiveFilterOption = (state: IUserStore) => state.activeFilterOption;
@@ -9,3 +9,4 @@ export const selectGetUsersByNickname = (state: IUserStore) => state.getUserByNi
 export const selectUsers = (state: IUserStore) => state.users;
 export const selectSetCurrentUser = (state: IUserStore) => state.setCurrentUser;
 export const selectCurrentUser = (state: IUserStore) => state.currentUser;
+export const selectSetUsers = (state: IUserStore) => state.setUsers;

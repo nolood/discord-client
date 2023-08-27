@@ -20,6 +20,8 @@ export interface IUserStore {
   getUserByNickname: (nickname: string) => void;
   currentUser: IUser | null;
   setCurrentUser: (user: IUser | null) => void;
+  setUsers: (users: IUser[]) => void;
+  addFriend: (senderId: number, senderNick: string, recipientId: number) => void;
 }
 
 export const useUserStore = create<IUserStore>()((set) => ({
@@ -32,6 +34,8 @@ export const useUserStore = create<IUserStore>()((set) => ({
   status: 'idle',
   users: [],
   currentUser: null,
+  // Установить пользователей
+  setUsers: (users: IUser[]) => set(() => ({ users })),
   // Установить данного пользователя
   setCurrentUser: (user: IUser | null) => set(() => ({ currentUser: user })),
   // Получение пользователей по nickname
@@ -41,6 +45,9 @@ export const useUserStore = create<IUserStore>()((set) => ({
   // Установить активный фильтр
   setActiveFilterOption: (activeFilterOption: Omit<IFilteringItem, 'title'>) =>
     set(() => ({ activeFilterOption })),
+  // Добавить в друзья
+  addFriend: (senderId: number, senderNick: string, recipientId: number) =>
+    userService.addFriend(senderId, senderNick, recipientId, set),
   // Регистрация (временная)
   regUser: async (data) => {
     const { email, password, nickname } = data;

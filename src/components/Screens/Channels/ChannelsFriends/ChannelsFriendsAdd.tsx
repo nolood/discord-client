@@ -1,15 +1,20 @@
 import UsersPlateItem from '@/components/Channels/UsersPlateItem/UsersPlateItem';
 import SearchTextField from '@/components/Common/SearchTextField/SearchTextField';
-import { useUserStore } from '@/store/userStore';
-import { selectGetUsersByNickname, selectUsers } from '@/store/userStore/userSelectors';
+import {
+  selectGetUsersByNickname,
+  selectSetUsers,
+  selectUsers,
+} from '@/store/userStore/userSelectors';
+import { useUserStore } from '@/store/userStore/userStore';
 import SearchIcon from '@mui/icons-material/Search';
 import { debounce } from '@mui/material';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from './../Channels.module.scss';
 
 const ChannelsFriendsAdd = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const users = useUserStore(selectUsers);
+  const setUsers = useUserStore(selectSetUsers);
   const search = useUserStore(selectGetUsersByNickname);
   const updateSearchValue = useCallback(
     debounce((value) => {
@@ -21,6 +26,13 @@ const ChannelsFriendsAdd = () => {
     setSearchValue(value);
     updateSearchValue(value);
   };
+
+  useEffect(() => {
+    search('');
+    return () => {
+      setUsers([]);
+    };
+  }, []);
 
   return (
     <div>

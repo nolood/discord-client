@@ -1,12 +1,12 @@
 import { LOGIN_ROUTE } from '@/consts/PathsRoutes';
 import { authRoutes, publicRoutes } from '@/routes';
-import { useUserStore } from '@/store/userStore';
 import {
   selectCurrentUser,
   selectIsAuth,
   selectSetCurrentUser,
   selectSetIsAuth,
 } from '@/store/userStore/userSelectors';
+import { useUserStore } from '@/store/userStore/userStore';
 import { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 

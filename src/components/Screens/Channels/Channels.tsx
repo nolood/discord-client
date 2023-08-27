@@ -1,8 +1,8 @@
 import ChannelsRightSidePanel from '@/components/Common/ChannelsRightSidePanel/ChannelsRightSidePanel';
 import TopGroup from '@/components/Common/TopGroup/TopGroup';
 import ChannelsTopPanel from '@/components/Screens/Channels/ChannelsTopPanel/ChannelsTopPanel';
-import { useUserStore } from '@/store/userStore';
 import { selectActiveFilterOption } from '@/store/userStore/userSelectors';
+import { useUserStore } from '@/store/userStore/userStore';
 import ChannelsFriends from './ChannelsFriends/ChannelsFriends';
 import ChannelsFriendsAdd from './ChannelsFriends/ChannelsFriendsAdd';
 

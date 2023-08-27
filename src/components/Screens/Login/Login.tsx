@@ -1,6 +1,6 @@
 import { CHANNEL_ROUTE, REGISTER_ROUTE } from '@/consts/PathsRoutes';
-import { useUserStore } from '@/store/userStore';
 import { selectIsAuth, selectLogin } from '@/store/userStore/userSelectors';
+import { useUserStore } from '@/store/userStore/userStore';
 import { IFormLogin } from '@/types/IFormLogin';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';

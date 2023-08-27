@@ -1,4 +1,4 @@
-import styles from "./SearchTextField.module.scss";
+import styles from './SearchTextField.module.scss';
 
 const SearchTextField = ({
   className,
@@ -13,11 +13,11 @@ const SearchTextField = ({
 }) => {
   return (
     <input
-      type="text"
+      type='text'
       placeholder={placeholder}
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      className={`${className ? className : ""} ${styles.input}`}
+      className={`${className ? className : ''} ${styles.input}`}
     />
   );
 };

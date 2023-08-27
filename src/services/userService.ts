@@ -15,9 +15,10 @@ export const userService = {
   // Получение пользователей по nickname
   getByNickname: async (nickname: string, set: SET) => {
     setStatus(set, 'loading');
+    set(() => ({ users: [] }));
     try {
-      const { data } = await axios.get(`${baseApi}/users/${nickname}`);
-      set(() => ({ potentFriends: data }));
+      const res = await axios.get(`${baseApi}/users?nickname=${nickname}`);
+      set(() => ({ users: res.data }));
       setStatus(set, 'success');
     } catch {
       setStatus(set, 'fail');
